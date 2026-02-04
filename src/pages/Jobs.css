@@ -1,0 +1,74 @@
+.jobs-page {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: "Inter", system-ui, sans-serif;
+  color: #1f2937;
+}
+
+.jobs-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2563eb;
+}
+
+/* FILTRES */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.filters input,
+.filters select {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  min-width: 150px;
+}
+
+.filters input:focus,
+.filters select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+}
+
+/* LOADING */
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #2563eb;
+}
+
+/* JOB LIST */
+.job-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* DARK MODE */
+body.dark .jobs-page {
+  color: #e5e7eb;
+}
+
+body.dark .filters input,
+body.dark .filters select {
+  background: #1e293b;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+}
+
+body.dark .filters input:focus,
+body.dark .filters select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+}
+
+body.dark .loading {
+  color: #60a5fa;
+}

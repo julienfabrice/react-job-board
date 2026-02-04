@@ -6,17 +6,18 @@ import "./Home.css";
 function Home() {
   return (
     <div className="home">
+      {/* HERO */}
       <section className="hero">
-        <h1>Find Your Next Remote Job</h1>
-        <p>
-          Discover remote opportunities for developers around the world.
-        </p>
-
-        <Link to="/jobs">
-          <button>Browse Jobs</button>
-        </Link>
+        <div className="hero-content">
+          <h1>Find Your Next Remote Job</h1>
+          <p>Discover remote opportunities for developers around the world.</p>
+          <Link to="/jobs">
+            <button>Browse Jobs</button>
+          </Link>
+        </div>
       </section>
 
+      {/* STATS */}
       <section className="stats">
         <div className="stat">
           <h3>120+</h3>
@@ -32,11 +33,14 @@ function Home() {
         </div>
       </section>
 
-      <section>
+      {/* FEATURED JOBS */}
+      <section className="featured-section">
         <h2>Featured Jobs</h2>
-        {jobs.slice(0, 3).map(job => (
-          <JobCard key={job.id} job={job} />
-        ))}
+        <div className="featured-jobs">
+          {jobs.slice(0, 3).map((job) => (
+            <JobCard key={job.id} job={job} />
+          ))}
+        </div>
       </section>
     </div>
   );
