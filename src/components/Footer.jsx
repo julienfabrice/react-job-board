@@ -1,6 +1,8 @@
+import "./Footer.css";
+
 function Footer() {
   return (
-    <footer style={{ padding: "20px", marginTop: "40px", textAlign: "center" }}>
+    <footer className="footer">
       <p>© 2026 Julien Fabrice</p>
     </footer>
   );

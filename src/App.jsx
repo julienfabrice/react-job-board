@@ -3,6 +3,12 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Jobs from "./pages/Jobs";
 import JobDetails from "./pages/JobDetails";
+import Footer from "./components/Footer";
+import Contact from "./components/Contact";
+
+
+
+
 
 function App() {
   return (
@@ -13,7 +19,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/jobs/:id" element={<JobDetails />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
+        
+        <Footer />
+
     </>
   );
 }

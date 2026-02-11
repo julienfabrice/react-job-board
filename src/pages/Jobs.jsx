@@ -11,25 +11,19 @@ export default function Jobs() {
   const [levelFilter, setLevelFilter] = useState("All");
 
   useEffect(() => {
-    // Simuler le chargement des jobs
     setTimeout(() => {
       setJobList(jobs);
       setLoading(false);
-    }, 800); // 0.8s pour l’effet loading
+    }, 800);
   }, []);
 
-  // Liste filtrée
   const filteredJobs = jobList.filter((job) => {
-    const matchesSearch =
-      job.title.toLowerCase().includes(search.toLowerCase());
-    const matchesLocation =
-      locationFilter === "All" || job.location === locationFilter;
+    const matchesSearch = job.title.toLowerCase().includes(search.toLowerCase());
+    const matchesLocation = locationFilter === "All" || job.location === locationFilter;
     const matchesLevel = levelFilter === "All" || job.level === levelFilter;
-
     return matchesSearch && matchesLocation && matchesLevel;
   });
 
-  // Locations uniques
   const locations = ["All", ...new Set(jobList.map((job) => job.location))];
 
   return (
@@ -45,21 +39,13 @@ export default function Jobs() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <select
-          value={locationFilter}
-          onChange={(e) => setLocationFilter(e.target.value)}
-        >
+        <select value={locationFilter} onChange={(e) => setLocationFilter(e.target.value)}>
           {locations.map((loc, index) => (
-            <option key={index} value={loc}>
-              {loc}
-            </option>
+            <option key={index} value={loc}>{loc}</option>
           ))}
         </select>
 
-        <select
-          value={levelFilter}
-          onChange={(e) => setLevelFilter(e.target.value)}
-        >
+        <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)}>
           <option value="All">All Levels</option>
           <option value="Junior">Junior</option>
           <option value="Intermediate">Intermediate</option>

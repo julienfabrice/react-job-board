@@ -5,103 +5,152 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 60px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 40px;
+  background: #0073b1; /* bleu LinkedIn */
+  color: white;
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 /* =====================
    LOGO
 ===================== */
 .logo {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  color: #2563eb;
+  color: white;
   text-decoration: none;
-  letter-spacing: -0.5px;
+}
+
+/* =====================
+   NAV CONTAINER
+===================== */
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
 /* =====================
    NAV LINKS
 ===================== */
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 32px;
-  align-items: center;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: flex;
 }
 
 .nav-links a {
-  position: relative;
   text-decoration: none;
-  color: #374151;
+  color: white;
   font-weight: 500;
   font-size: 0.95rem;
-  transition: color 0.2s ease;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.25s ease;
 }
 
-/* Hover clean */
-.nav-links a:hover {
-  color: #2563eb;
-}
-
-/* Active link underline */
+.nav-links a:hover,
 .nav-links a.active {
-  color: #2563eb;
+  background: rgba(255,255,255,0.2);
+  color: white;
 }
 
-.nav-links a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 2px;
-  background: #2563eb;
-  border-radius: 2px;
+/* =====================
+   THEME BUTTON
+===================== */
+.theme-toggle {
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* =====================
+   BURGER MENU
+===================== */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* animation burger */
+.menu-toggle div {
+  width: 24px;
+  height: 3px;
+  background: white;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* =====================
+   RESPONSIVE MOBILE
+===================== */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-container {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #0073b1;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: none;
+    width: 220px;
+  }
+
+  .nav-container.open {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
 
 /* =====================
    DARK MODE
 ===================== */
-body.dark .navbar {
-  background: #020617;
-  border-color: #1e293b;
+/* On garde le fond bleu et texte blanc en dark mode */
+body.dark .navbar,
+body.dark .nav-container {
+  background: #0073b1;
 }
 
-body.dark .logo {
-  color: #60a5fa;
-}
-
-body.dark .nav-links a {
-  color: #cbd5f5;
+body.dark .nav-links a,
+body.dark .theme-toggle {
+  color: white;
 }
 
 body.dark .nav-links a:hover,
 body.dark .nav-links a.active {
-  color: #60a5fa;
-}
-
-body.dark .nav-links a.active::after {
-  background: #60a5fa;
-}
-
-/* =====================
-   RESPONSIVE
-===================== */
-@media (max-width: 640px) {
-  .navbar {
-    padding: 14px 20px;
-  }
-
-  .nav-links {
-    gap: 18px;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
+  background: rgba(255,255,255,0.2);
+  color: white;
 }

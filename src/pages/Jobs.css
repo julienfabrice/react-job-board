@@ -1,9 +1,9 @@
 .jobs-page {
-  max-width: 900px;
+  max-width: 1300px;  /* anciennement 900px */
   margin: 2rem auto;
   padding: 1rem;
   font-family: "Inter", system-ui, sans-serif;
-  color: #1f2937;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
 }
 
 .jobs-page h1 {
@@ -47,9 +47,31 @@
 /* JOB LIST */
 .job-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
   gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem 0;
 }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .job-list {
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+  }
+}
+
+@media (max-width: 768px) {
+  .job-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+  }
+}
+
+@media (max-width: 480px) {
+  .job-list {
+    grid-template-columns: 1fr; /* 1 colonne */
+  }
+}
+
 
 /* DARK MODE */
 body.dark .jobs-page {
